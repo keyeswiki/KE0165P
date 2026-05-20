@@ -3,13 +3,12 @@ Arduino 教程
 ==============
 
 
+:download:`点击下载库文件<library.zip>`
+
+
+
 .. toctree::
     :maxdepth: 2
-
-库文件下载
-================
-
-:download:`点击下载库文件<library.zip>`
 
 1-4introduction/introduction
 5assembly/assembly
