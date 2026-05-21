@@ -25,8 +25,10 @@ Arduino 教程
 .. toctree::
     :maxdepth: 1
 
+    5assembly/assembly
 
-5assembly/assembly
+
+
 
 
 3.安装Arduino IDE软件安装开发板驱动
@@ -36,9 +38,7 @@ Arduino 教程
 .. toctree::
     :maxdepth: 2
 
-
-
-ArduinoIDE_driver
+    ArduinoIDE_driver
 
 
 
@@ -49,8 +49,7 @@ ArduinoIDE_driver
 .. toctree::
     :maxdepth: 1
 
-
-7project/project
+    7project/project
 
 
 
@@ -62,7 +61,7 @@ ArduinoIDE_driver
 .. toctree::
     :maxdepth: 1
 
-faq
+    faq
 
 
 
