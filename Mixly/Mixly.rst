@@ -9,7 +9,7 @@ Mixly库文件下载
 .. toctree::
     :maxdepth: 1
 
-:download:`点击下载库文件<米思奇库文件.zip>`
+:download:`点击下载库文件<Keyes智能小车.zip>`
 
 
 1.4WD蓝牙多功能智能车介绍
