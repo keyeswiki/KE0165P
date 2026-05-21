@@ -38,7 +38,7 @@ Arduino 教程
 .. toctree::
     :maxdepth: 2
 
-    ArduinoIDE_driver
+    ArduinoIDE
 
 
 
