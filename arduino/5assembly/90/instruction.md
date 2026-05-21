@@ -10,6 +10,7 @@
 
 (1)复制下面的程序或者打开资料下的**舵机复位程序**
 
+```cpp
 #define servoPin 10  //舵机接数字口10
 
 int pos; //舵机的角度变量
@@ -45,6 +46,8 @@ void procedure(int myangle) {
   delay((20 - pulsewidth / 1000));  //周期是20ms，所以低电平持续剩下的时间
 
 }
+```
+
 
 ![](media/image2.png)
 
