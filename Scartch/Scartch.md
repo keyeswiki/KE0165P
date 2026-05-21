@@ -1,14 +1,14 @@
-# Mixly 课程
+# Scartch 课程
 
-### [1、4WD蓝牙多功能智能车简介](.\1-4introduction\introduction.md)
+### [1、4WD蓝牙多功能智能车简介](.\introduction.md)
 
 ### [2、4WD蓝牙多功能智能车安装](.\5assembly\assembly.md)
 
-### [3、安装米思奇软件安装开发板驱动](.\6mixly_driver\mixly_driver.md)
+### [3、KidsBlock软件安装方法](.\6Scartch_driver\driver.md)
 
 ### 4、4WD蓝牙多功能智能车课程
 
-（在开始课程之前，请先[安装库文件](.\Keyes.zip)）
+（在开始课程之前，请先[安装库文件](Mixly\Keyes.zip)）
 
 - [第01课 LED灯](.\7project\1\1.md)
 - [第02课 亮度调节](.\7project\2\2.md)
@@ -29,4 +29,3 @@
 - [第17课 多功能智能小车](.\7project\17\17.md)
 
 ### [5、常见问题解答](.\faq.md)
-
