@@ -12,7 +12,7 @@ Arduino 教程
 
 introduction
 5assembly/assembly
-6ArduinoIDE_driver/ArduinoIDE_driver
+ArduinoIDE_driver
 7project/project
 faq
 
