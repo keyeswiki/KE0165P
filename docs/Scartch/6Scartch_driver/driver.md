@@ -1,4 +1,4 @@
-# 6、**KidsBlock软件安装方法**
+# **KidsBlock软件安装方法**
 
 注意：这里是以Windows系统为例，macOS 系统可以以此作为参考。
 

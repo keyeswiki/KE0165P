@@ -1,4 +1,4 @@
-# 6、PLUS开发板和Arduino IDE
+# PLUS开发板和Arduino IDE
 
 ## 第1小节  简单介绍keyes PLUS开发板
 
