@@ -14,7 +14,7 @@ introduction
 5assembly/assembly
 6ArduinoIDE_driver/ArduinoIDE_driver
 7project/project
-8faq/faq
+faq
 
 
 

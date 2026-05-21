@@ -31,7 +31,7 @@
 | 安装7 | 安装7 |
 | 安装所需零件 | <img src="media/image22.jpg" width="200"> |
 | 分步安装1 | <img src="media/image23.jpg" width="200"> |
-| 分步安装2 | 安装前需要先将舵机设置到90度，上传[这里的代码](90.7z)。  <img src="media/image25.jpg" width="200"> |
+| 分步安装2 | 安装前需要先将舵机设置到90度，上传[这里的代码](.\90.7z)。  <img src="media/image25.jpg" width="200"> |
 | 完成 | <img src="media/image26.png" width="200"> |
 | 安装8 | 安装8 |
 | 安装所需零件 | <img src="media/image27.png" width="200"> |
