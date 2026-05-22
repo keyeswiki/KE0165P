@@ -4,9 +4,10 @@
 
 
    README.md
+   introduction/introduction.md
+   assembly/assembly.md
    arduino/arduino.rst
-   Mixly/Mixly.rst
-   Scartch/Scartch.rst
+   introduction/FAQ.md
 
 
 
