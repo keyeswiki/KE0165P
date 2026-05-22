@@ -6,6 +6,8 @@
    README.md
    introduction/introduction.md
    assembly/assembly.md
+   driver/driver.rst
+   
    introduction/FAQ.md
 
 
