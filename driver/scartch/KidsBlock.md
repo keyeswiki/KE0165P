@@ -1,10 +1,10 @@
-# **KidsBlock软件安装方法**
+## （3）KidsBlock软件和开发板驱动
 
 注意：这里是以Windows系统为例，macOS 系统可以以此作为参考。
 
-Windows系统下载链接：
+### 下载和安装
 
-https://pan.baidu.com/s/18H1TXirmMYtRVMfI7M2W3A
+Windows系统下载链接：https://pan.baidu.com/s/18H1TXirmMYtRVMfI7M2W3A
 
 提取码：57sl
 
@@ -40,7 +40,7 @@ https://pan.baidu.com/s/18H1TXirmMYtRVMfI7M2W3A
 
  
 
-## **KidsBlock软件的使用方法**
+### **KidsBlock软件的使用方法**
 
 （以下是以Windows系统为例，MacOS系统可以参考）
 
@@ -174,10 +174,8 @@ O. 过几秒钟后，驱动安装完成，点击“确定”即可。
 
 ![img](media/wps81.jpg) 
 
- 
+
 
 ![img](media/wps82.jpg) 
 
- 
-
-![img](media/wps84.jpg) 
+ ![img](media/wps84.jpg) 

@@ -7,7 +7,7 @@
 ===========================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     arduino/Arduino IDE
 
@@ -18,7 +18,7 @@
 ===============
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
 
     mixly/mixly
@@ -30,7 +30,7 @@
 =================================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
 
     scartch/KidsBlock
