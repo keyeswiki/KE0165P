@@ -6,7 +6,6 @@
    README.md
    introduction/introduction.md
    assembly/assembly.md
-   arduino/arduino.rst
    introduction/FAQ.md
 
 
