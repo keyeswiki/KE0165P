@@ -7,7 +7,7 @@
    introduction/introduction.md
    assembly/assembly.md
    driver/driver.rst
-   
+   project/project.rst
    introduction/FAQ.md
 
 
