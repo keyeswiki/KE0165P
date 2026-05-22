@@ -17,9 +17,13 @@
 
 # -- Project information -----------------------------------------------------
 
-project = '科易互动机器人'
-author = 'keyes'
-copyright = 'Shenzhen KEYES DIY ROBOT co., Ltd.'
+project = 'keyes WiKi'
+copyright = 'keyes , WiKi'
+author = 'keyes WiKi'
+copyright = 'Shenzhen keyes Technology Co., Ltd'
+
+root_doc = "index"
+master_doc = "index"
 
 # -- General configuration ---------------------------------------------------
 
