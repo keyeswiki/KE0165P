@@ -1,4 +1,4 @@
-## 3、安装Scartch（KidsBlock）软件和开发板驱动
+# 3、安装Scartch（KidsBlock）软件和开发板驱动
 
 ## 下载和安装
 

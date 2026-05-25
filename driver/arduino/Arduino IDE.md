@@ -1,4 +1,4 @@
-## 1、安装Arduino IDE软件和开发板驱动
+# 1、安装Arduino IDE软件和开发板驱动
 
 ## 第1小节  简单介绍keyes PLUS开发板
 
