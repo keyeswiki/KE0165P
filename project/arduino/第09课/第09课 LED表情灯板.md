@@ -1,6 +1,6 @@
 ## 第09课 LED表情灯板
 
-![image-20260525134226137](.\assets/image-20260525134226137.png)
+![image-20260525134226137](media/image-20260525134226137.png)
 
 ### （1）项目介绍
 
@@ -24,7 +24,7 @@
 
 **8X16点阵的电路图**
 
-![image12](.\assets/image12.png)
+![image12](media/image12.png)
 
 **控制8X16点阵的原理**
 
@@ -36,17 +36,17 @@
 
 通讯协议图如下(SCLK)就是SCL，(DIN)就是SDA。
 
-![image-20260525134437781](.\assets/image-20260525134437781.png)
+![image-20260525134437781](media/image-20260525134437781.png)
 
 ①数据输入的开始条件是，SCL为高电平，SDA由高变低。
 
 ②数据命令设置，有下图所示方法可选。我们的示例程序中选择 **地址自动加1**的方式，其二进制是0100 0000对应的十六进制为0x40
 
-![image-20260525134500537](.\assets/image-20260525134500537.png)
+![image-20260525134500537](media/image-20260525134500537.png)
 
 ③地址命令设置，有如下图地址可以选。我们示例程序中选了第一个00H，其二进制1100 0000对应的十六进制是0xc0
 
-![image-20260525134527688](.\assets/image-20260525134527688.png)
+![image-20260525134527688](media/image-20260525134527688.png)
 
 ④数据输入的要求是，在输入数据时当SCL是高电平时，SDA上的信号必须保持不变，只有SCL上的时钟信号为低电平时，SDA上的信号才可以改变。数据的输入是 低位在前，高位在后 传输。
 
@@ -54,7 +54,7 @@
 
 ⑥显示控制，设置不同脉宽，脉宽有如下图可选。我们示例中选了脉宽为4/16，1000 1010对应的十六进制是0x8A
 
-![image-20260525134549407](.\assets/image-20260525134549407.png)
+![image-20260525134549407](media/image-20260525134549407.png)
 
 对应我们的示例程序来学习会理解的更好。
 
@@ -62,45 +62,45 @@
 
 设置时，我们需要把一个图案转换成1组16个的16位数据。
 
-[点击下载取模工具](.\ModuloTool.zip)：  ![](.\assets/image17.png)
+下载取模工具： ![](media/image17.png)
 
-![](.\assets/image18.png)
+![](media/image18.png)
 
-点击![](.\assets/image19.png)新建图案，根据显示屏规格，设置宽度为16，高度为8，如下图。
+点击![](media/image19.png)新建图案，根据显示屏规格，设置宽度为16，高度为8，如下图。
 
-![](.\assets/image20.png)
+![](media/image20.png)
 
 初始时发现格点不大，不方便设置，我们可以通过设置模拟动画，设置格点大小，点击如下图。
 
-![](.\assets/image21.png)
+![](media/image21.png)
 
-一直鼠标左键点击![](.\assets/image22.png)，就可以一直放大格点了。
+一直鼠标左键点击![](media/image22.png)，就可以一直放大格点了。
 
 放大后，我们就可以通过用鼠标点击白色区域，设置显示图案了。
 
-![](.\assets/image23.png)
+![](media/image23.png)
 
 设置时，鼠标点击（左右键都可以）白色格点，变为黑色；再点击黑色格点，变为白色。黑色代表该格点显示亮起，白色代表格点不显示。显示屏最多能设置16*8个点显示。设置笑脸显示如下图。
 
-![](.\assets/image24.png)
+![](media/image24.png)
 
-设置参数设置，选择其他选项，设置如下图。设置完成点击![](.\assets/image25.png)。
+设置参数设置，选择其他选项，设置如下图。设置完成点击![](media/image25.png)。
 
-![](.\assets/image26.png)
+![](media/image26.png)
 
-![](.\assets/image27.png)
+![](media/image27.png)
 
 设置取模方式，选择C51格式选择如下图。
 
-![](.\assets/image28.png)
+![](media/image28.png)
 
 设置成功后，在以下区域就可以看到对应的16个数据了，只需要将数据复制粘贴在数组中，就可以用直接调用了。
 
-![image-20260525134707205](.\assets/image-20260525134707205.png)
+![image-20260525134707205](media/image-20260525134707205.png)
 
 ### （5）接线图
 
-![image30](.\assets/image30.png)
+![image30](media/image30.png)
 
 接线注意：  8x16 LED灯板的GND、VCC、SDA、SCL分别对应的接到keyestudio传感器扩展板-（GND）、+（VCC）、A4、A5进行两线串行通信。（注意：这里是接了arduino IIC的引脚，但是这个模块并不是IIC通讯的，是可以接任意两个引脚的。） 
 
@@ -192,19 +192,19 @@ void IicEnd() {
 
 在keyestudio V4.0开发板上传代码成功，按照接线图接线，拨码开关拨打到右端上电后，看一下，我们的显示屏上是不是显示了一个笑脸。
 
-![image-20260525134929090](.\assets/image-20260525134929090.png)
+![image-20260525134929090](media/image-20260525134929090.png)
 
 ### （8）项目拓展
 
 我们利用刚刚学到的取模工具，,让点阵循环显示开始图案，前进图案，停止图案，然后清除图案，时间间隔为2000毫秒。 
 
-![](.\assets/image32.png)
+![](media/image32.png)
 
-![](.\assets/image33.png)
+![](media/image33.png)
 
-![](.\assets/image34.png)
+![](media/image34.png)
 
-![](.\assets/image35.png)
+![](media/image35.png)
 
 利用取模工具得到的我们要显示的图形代码，接线图不变，下面就是多个图案切换显示的代码。
 
@@ -302,8 +302,8 @@ void iicEnd() {
 
 上传代码到开发板，我们看到表情面板（8X16点阵显示开始前进停止然后清屏的图案，循环反复）。
 
-![image37](.\assets/image37.png)
+![image37](media/image37.png)
 
-![image38](.\assets/image38.png)
+![image38](media/image38.png)
 
-![image39](.\assets/image39-17796882857191.png)
+![image39](media/image39-17796882857191.png)
