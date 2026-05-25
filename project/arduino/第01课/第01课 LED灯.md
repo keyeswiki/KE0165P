@@ -26,11 +26,11 @@ LED显示颜色：红色
 
 ### （3）项目组件：
 
-| keyes PLUS 开发板*1 | Keyes brick L298P 电机驱动扩展板 V1*1 | keyes 草帽LED白发红模块*1 | keyes 草帽LED白发红模块*1 |
-| --- | --- | --- | --- |
-| <img src="media/image4.png" width="200"> | <img src="media/image5.png" width="200"> | <img src="media/image6.png" width="200"> | <img src="media/image7.png" width="200"> |
-| USB线*1 | 3Pin 双母头杜邦线*1 | 18650双节电池盒*1 | 18650电池*2 （电池自配） |
-| <img src="media/image8.png" width="200"> | <img src="media/image9.jpg" width="200"> | <img src="media/image10.png" width="200"> | <img src="media/image11.png" width="200"> |
+| keyes PLUS 开发板*1 | Keyes brick L298P 电机驱动扩展板 V1*1 | keyes 草帽LED白发红模块*1 |
+| --- | --- | --- |
+| <img src="media/image4.png" width="200"> | <img src="media/image5.png" width="200"> | <img src="media/image6.png" width="200"> |
+| USB线*1 | 3Pin 双母头杜邦线*1 | 18650双节电池盒*1<br />（电池 *2自配） |
+| <img src="media/image8.png" width="200"> | <img src="media/image9.jpg" width="200"> | <img src="media/image10.png" width="200"> |
 
 ### （4）接线图：
 
@@ -39,102 +39,6 @@ LED显示颜色：红色
 由上图我们可以看到，扩展板是堆叠在开发板上的，LED模块的-接到了扩展板的G,LED模块的+接到了扩展板的5V，LED模块的S已经接到了扩展板上的D9接口，接好线之后我们开始编写代码：
 
 ### （5）项目代码：
-
-```cpp
-/*
-
-  keyes 4WD蓝牙多功能智能车
-
-  lesson 1.1
-
-  LED闪烁
-
-  http://www.keyes-robot.com
-
-*/
-
-void setup()
-
-{
-
-  pinMode(9, OUTPUT);// 将数字引脚9初始化为输出
-
-}
-
-void loop() // 循环功能
-
-{
-
-  digitalWrite(9, HIGH); // 点亮LED
-
-  delay(1000); // 等待一秒钟
-
-  digitalWrite(9, LOW); // 熄灭LED
-
-  delay(1000); // 等待一秒钟
-
-}
-
-//*******************************************************************
-```
-
-
-### （6）项目结果：
-
-点击上传程序，你应该看到D9脚接着的LED打开和关闭，而且间隔的时间是一秒钟。
-
-### （7）代码说明:
-
-**pinMode(9，OUTPUT)**- 在使用Arduino的引脚之前，你需要告诉开发板它是INPUT还是OUTPUT。我们使用一个内置的“函数”pinMode()来做到这一点。
-
-**digitalWrite(9，HIGH)** - 当使用引脚作为OUTPUT时，可以将其命令为HIGH（输出5伏）或LOW（输出0伏）。
-
-### （8）项目拓展：
-
-前面我们控制了LED模块亮1秒钟,灭一秒钟 ，现在我们来拓展一下思路，通过改变delay的时间来改变LED 灯闪烁的频率。
-
-代码如下:
-
-```cpp
-/*
-
-  keyes 4WD蓝牙多功能智能车
-
-  lesson 1.2
-
-  LED闪烁
-
-  http://www.keyes-robot.com
-
-*/
-
-void setup()
-
-{
-
-  pinMode(9, OUTPUT);// 将数字引脚9初始化为输出
-
-}
-
-void loop() // 循环功能
-
-{
-
-  digitalWrite(9, HIGH); // 点亮LED
-
-  delay(100); // 等待0.1秒钟
-
-  digitalWrite(9, LOW); // 熄灭LED
-
-  delay(100); // 等待0.1秒钟
-
-}
-
-//*******************************************************************
-```
-
-
-怎么样是不是很好理解，就是通过改变delay 这个代码的时间，来改变3脚LED亮和灭的频率，不多说，我们上传代码。看看这个LED灯闪烁的频率是不是比之前快了？
 
 **示例代码 1（KE0165_1.1.ino）：**
 
@@ -163,6 +67,20 @@ void loop() {
 ```
 
 
+### （6）项目结果：
+
+点击上传程序，你应该看到D9脚接着的LED打开和关闭，而且间隔的时间是一秒钟。
+
+### （7）代码说明:
+
+**pinMode(9，OUTPUT)**- 在使用Arduino的引脚之前，你需要告诉开发板它是INPUT还是OUTPUT。我们使用一个内置的“函数”pinMode()来做到这一点。
+
+**digitalWrite(9，HIGH)** - 当使用引脚作为OUTPUT时，可以将其命令为HIGH（输出5伏）或LOW（输出0伏）。
+
+### （8）项目拓展：
+
+前面我们控制了LED模块亮1秒钟,灭一秒钟 ，现在我们来拓展一下思路，通过改变delay的时间来改变LED 灯闪烁的频率。
+
 **示例代码 2（KE0165_1.2.ino）：**
 
 ```cpp
@@ -188,3 +106,5 @@ void loop() {
   delay(100);                   // 延时 0.1 秒
 }
 ```
+
+怎么样是不是很好理解，就是通过改变delay 这个代码的时间，来改变3脚LED亮和灭的频率，不多说，我们上传代码。看看这个LED灯闪烁的频率是不是比之前快了？

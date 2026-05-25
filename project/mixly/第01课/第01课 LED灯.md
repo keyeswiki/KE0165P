@@ -26,11 +26,11 @@ LED显示颜色：红色
 
 ### （3）项目组件：
 
-| keyes PLUS 开发板*1 | Keyes brick L298P 电机驱动扩展板 V1*1 | keyes 草帽LED白发红模块*1 | keyes 草帽LED白发红模块*1 |
-| --- | --- | --- | --- |
-| <img src="media/image4.png" width="200"> | <img src="media/image5.png" width="200"> | <img src="media/image6.png" width="200"> | <img src="media/image7.png" width="200"> |
-| USB线*1 | 3Pin 双母头杜邦线*1 | 18650双节电池盒*1 | 18650电池*2 （电池自配） |
-| <img src="media/image8.png" width="200"> | <img src="media/image9.jpg" width="200"> | <img src="media/image10.png" width="200"> | <img src="media/image11.png" width="200"> |
+| keyes PLUS 开发板*1 | Keyes brick L298P 电机驱动扩展板 V1*1 | keyes 草帽LED白发红模块*1 |
+| --- | --- | --- |
+| <img src="media/image4.png" width="200"> | <img src="media/image5.png" width="200"> | <img src="media/image6.png" width="200"> |
+| USB线*1 | 3Pin 双母头杜邦线*1 | 18650双节电池盒*1<br />（电池 *2自配） |
+| <img src="media/image8.png" width="200"> | <img src="media/image9.jpg" width="200"> | <img src="media/image10.png" width="200"> |
 
 ### （4）接线图：
 
@@ -40,9 +40,7 @@ LED显示颜色：红色
 
 ### （5）项目代码：
 
-①点击左侧基本块区，在**控制**栏目里面拖出初始化图标
-
-![](media/image13.png)
+①点击左侧基本块区，在**控制**栏目里面拖出初始化图标 ![](media/image13.png)
 
 ②点击**keyes智能小车**库下面的**4WD智能小车**，拖出LED灯栏目图标，放入初始化里面，设置管脚为9，电平为低，关闭LED。
 
@@ -63,6 +61,8 @@ LED显示颜色：红色
 ⑥再来一个延时1000毫秒
 
 ![](media/image18.png)
+
+完整代码：
 
 
 ![](media/image19.png)
