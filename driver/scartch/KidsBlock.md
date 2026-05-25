@@ -1,3 +1,5 @@
+## 3、安装Scartch（KidsBlock）软件和开发板驱动
+
 ## 下载和安装
 
 注意：这里是以Windows系统为例，macOS 系统可以以此作为参考。
