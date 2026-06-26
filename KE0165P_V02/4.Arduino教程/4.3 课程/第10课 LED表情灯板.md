@@ -1,0 +1,387 @@
+## 第10课 LED表情灯板
+
+### 10.1 项目介绍：
+
+如果在我们的机器人上加一块表情面板，会非常有趣。8x16 LED点阵可以满足需求，能自己创建面部表情、动画等。微处理器（Arduino）通过两线总线接口与AiP1640通讯，控制点阵上128个LED的亮灭来显示图案。
+
+### 10.2 元件知识：
+
+![](../../img/image60.png)
+
+**1\. 如何控制每一个 LED？**
+
+8x16 点阵共有 128 个 LED。为了简化控制，我们将这 128 个灯分为 16 列，每列有 8 个灯。 在计算机中，一个字节（Byte）由 8 位（Bit）组成，每一位可以是 0 或 1。
+
+- 1 代表 LED 亮
+
+- 0 代表 LED 灭
+
+因此，1 个字节的数据正好可以控制 1 列（8个）LED 的状态。要控制整个 8x16 点阵，我们需要发送 16 个字节的数据，分别对应 16 列。
+
+**接口说明及通讯协议**
+
+微处理器（Arduino）通过两线总线接口与AiP1640通讯。通讯协议图中，(SCLK)为SCL，(DIN)为SDA：
+
+![](../../img/image61.png)
+
+- ①数据输入开始条件：SCL为高电平，SDA由高变低。
+
+- ②数据命令设置：示例程序中选择 “地址自动加1” 方式，二进制为0100 0000，对应十六进制0x40。
+
+![](../../img/image62.png)
+
+- ③地址命令设置：示例程序中选择第一个00H，二进制为1100 0000，对应十六进制0xc0。
+
+![](../../img/image63.png)
+
+- ④数据输入：SCL为高电平时SDA信号保持不变，低电平时可改变，数据输入低位在前、高位在后传输。
+
+- ⑤数据传输结束条件：SCL为低时SDA为低，SCL变高时SDA变高。
+
+- ⑥显示控制：示例中选择脉宽为4/16，十六进制为0x8A。
+
+![](../../img/image64.png)
+
+**取模工具的使用说明**
+
+设置时，我们需要把一个图案转换成1组16个的16位数据，这里就需要用到一个取模软件![](../../img/image65.png)，这个软件已放入资料文件夹中。使用时打开图标，显示如下图。
+
+![](../../img/image66.png)
+
+点击 “**新建图案**” ![](../../img/image67.png)，根据显示屏规格，设置宽度为16，高度为8，如下图。
+
+![](../../img/image68.png)
+
+初始时发现格点不大，不方便设置，我们可以通过点击 “**模拟动画**” 设置格点大小，点击“放大格点” ![](../../img/image70.png)来放大格点。如下图。
+
+![](../../img/image69.png)
+
+一直鼠标左键点击，就可以一直放大格点了。放大后，我们就可以通过用鼠标点击白色区域，设置显示图案了。
+
+![](../../img/image71.png)
+
+设置时，鼠标点击（左右键都可以）白色格点，变为黑色；再点击黑色格点，变为白色。黑色代表该格点显示亮起，白色代表格点不显示。显示屏最多能设置16*8个点显示。设置笑脸显示如下图。
+
+![](../../img/image72.png)
+
+点击 “**参数设置**”，选择 “**其他选项**”，设置如下图。设置完成点击 “**确定**” ![](../../img/image73.png)。
+
+![](../../img/image74.png)
+
+![](../../img/image75.png)
+
+点击 “**取模方式**”，选择 “**C51格式**”。如下图：
+
+![](../../img/image76.png)
+
+设置成功后，在以下区域就可以看到对应的16个数据了，只需要将数据复制粘贴在数组中，就可以用直接调用了。（0x00,0x00,0x1C,0x02,0x02,0x02,0x5C,0x40,0x40,0x5C,0x02,0x02,0x02,0x1C,0x00,0x00）
+
+![](../../img/image77.png)
+
+**规格参数：**
+
+- 工作电压: DC 3.3-5V
+
+- 功率损耗：400mW
+
+- 震荡频率：450KHz
+
+- 驱动电流：200mA
+
+- 通信方式：I2C通信
+
+### 10.3 项目组件：
+
+| 组装好的智能车(<span style="color: rgb(255, 76, 65);">未插上蓝牙模块</span>) *1 |USB线 *1 | 5号(1.5V)电池 *6（电池自备） |
+| --- | --- | --- | --- |
+| ![](../../img/image4.png) | ![](../../img/image8.png)| ![](../../img/image11.png) |
+
+
+### 10.4 接线图：
+
+⚠️ 特别注意：4WD智能车已经组装好了，这里不需要把8x16 LED点阵模块拆下来又重新组装和接线，这里再次提供接线图，是为了方便您编写代码！
+
+| 8x16 LED点阵模块 | 电机驱动扩展板 | 
+| :--: | :--: | 
+| GND | G |
+| VCC | 5V |
+| SDA | A4 | 
+| SCL | A5 |
+
+![](../../img/image78.png)
+
+⚠️ <span style="color: rgb(255, 76, 65);">**特别注意：**</span>
+
+- 接线时请确保电源断开(拔掉Arduino主控板上的USB线或将电机驱动扩展板上的拨码开关拨到 “<span style="color: rgb(255, 76, 65);">**OFF**</span>” 端)，避免短路。
+
+- 电源连接：电池盒电源接到电机驱动扩展板的 BAT 接口（注意正负极不要接反），端口正反面，请勿反插，否则会损坏端口。
+
+- 电池正负极切勿接反，否则可能烧毁电机驱动扩展板。
+
+- 电机驱动扩展板上的拨码开关拨到 “<span style="color: rgb(255, 76, 65);">**ON**</span>” 端。
+
+### 10.5 示例代码1：显示静态笑脸
+
+这段代码将在点阵上显示一个固定的笑脸图案。
+
+⚠️ <span style="color: rgb(255, 76, 65);">**重要提示：**</span>
+
+- <span style="color: rgb(172, 57, 255);">**上传示例代码前，请务必拔掉蓝牙模块！ 因为蓝牙模块也占用Arduino的串口通信（TX/RX），如果不拔掉，示例代码上传会失败。**</span>
+
+```cpp
+/*
+  keyes 4WD 多功能智能车
+  课程 10.1
+  点阵显示
+  http://www.keyes-robot.com
+*/
+// 从取摸工具中得到的微笑图案的数据
+unsigned char SMILE[] = {0x00, 0x00, 0x1c, 0x02, 0x02, 0x02, 0x5c, 0x40, 0x40, 0x5c, 0x02, 0x02, 0x02, 0x1c, 0x00, 0x00};
+#define SCL_PIN  A5  // 时钟引脚 A5
+#define SDA_PIN  A4  // 数据引脚 A4
+
+/* 功能：初始化设置 */
+void setup() {
+  pinMode(SCL_PIN, OUTPUT);  // 设置时钟引脚为输出
+  pinMode(SDA_PIN, OUTPUT);  // 设置数据引脚为输出
+  // 清屏
+  // matrixDisplay(clear);
+}
+
+/* 功能：主循环 */
+void loop() {
+  matrixDisplay(SMILE);  // 显示微笑表情图案
+}
+
+/* 功能：点阵屏显示函数 */
+void matrixDisplay(unsigned char matrixValue[]) {
+  IicStart();  // 启动数据传输
+  IicSend(0xc0);  // 选择地址
+
+  for (int i = 0; i < 16; i++) {  // 图案数据共16字节
+    IicSend(matrixValue[i]);  // 传输图案数据
+  }
+  IicEnd();  // 结束数据传输
+
+  IicStart();
+  IicSend(0x8A);  // 显示控制，选择脉宽为4/16
+  IicEnd();
+}
+
+/* 功能：IIC 起始信号 */
+void IicStart() {
+  digitalWrite(SCL_PIN, HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_PIN, HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_PIN, LOW);
+  delayMicroseconds(3);
+}
+
+/* 功能：IIC 发送一个字节数据 */
+void IicSend(unsigned char sendData) {
+  for (char i = 0; i < 8; i++) {  // 每字节8位
+    digitalWrite(SCL_PIN, LOW);  // 时钟拉低，准备改变数据线状态
+    delayMicroseconds(3);
+    if (sendData & 0x01) {  // 判断最低位是1还是0
+      digitalWrite(SDA_PIN, HIGH);
+    } else {
+      digitalWrite(SDA_PIN, LOW);
+    }
+    delayMicroseconds(3);
+    digitalWrite(SCL_PIN, HIGH);  // 时钟拉高，数据传输完成
+    delayMicroseconds(3);
+    sendData = sendData >> 1;  // 右移一位，准备传输下一位
+  }
+}
+
+/* 功能：IIC 结束信号 */
+void IicEnd() {
+  digitalWrite(SCL_PIN, LOW);
+  delayMicroseconds(3);
+  digitalWrite(SDA_PIN, LOW);
+  delayMicroseconds(3);
+  digitalWrite(SCL_PIN, HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_PIN, HIGH);
+  delayMicroseconds(3);
+}
+```
+
+
+### 10.6 项目结果1：
+
+⚠️ <span style="color: rgb(255, 76, 65);">**重要提示：**</span>
+
+- <span style="color: rgb(172, 57, 255);">**上传示例代码前，请务必拔掉蓝牙模块！ 因为蓝牙模块也占用Arduino的串口通信（TX/RX），如果不拔掉，示例代码上传会失败。**</span>
+
+外接电源，将电机驱动扩展板上的拨码开关拨到 “<span style="color: rgb(255, 76, 65);">**ON**</span>” 端，上电后。选择好正确的开发板板型（Arduino Uno）和 适当的串口端口（COMxx），然后单击 ![Arduino_2.3.6-a40](../../img/Arduino_2.3.6-a40.png) 按钮上传示例代码1至Arduino控制板。
+
+代码上传成功后，你将看到 8x16 LED 点阵上显示出一个清晰的笑脸图案。
+
+![](../../img/image79.png)
+
+### 10.7 示例代码2：动态表情动画
+
+既然我们可以显示静态图案，那么快速切换不同的图案就能形成动画效果。让我们尝试让点阵依次显示：“开始”、“前进”、“停止” 图案，然后 “清屏”，每个状态停留 2 秒。 
+
+![](../../img/image80.png)
+
+![](../../img/image81.png)
+
+![](../../img/image82.png)
+
+![](../../img/image83.png)
+
+利用取模工具得到要显示的图形代码:
+
+- 开始 (Start):
+
+```C
+0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01
+````
+- 前进 (Front): 
+
+```C
+0x00,0x00,0x00,0x00,0x00,0x24,0x12,0x09,0x12,0x24,0x00,0x00,0x00,0x00,0x00,0x00
+```
+
+- 后退 (Back): 
+
+```C
+0x00,0x00,0x00,0x00,0x00,0x24,0x48,0x90,0x48,0x24,0x00,0x00,0x00,0x00,0x00,0x00
+```
+
+- 左转 (Left): 
+
+```C
+0x00,0x00,0x00,0x00,0x00,0x00,0x44,0x28,0x10,0x44,0x28,0x10,0x44,0x28,0x10,0x00
+```
+
+- 右转 (Right): 
+
+```C
+0x00,0x10,0x28,0x44,0x10,0x28,0x44,0x10,0x28,0x44,0x00,0x00,0x00,0x00,0x00,0x00
+```
+
+- 停止 (Stop): 
+
+```C
+0x2E,0x2A,0x3A,0x00,0x02,0x3E,0x02,0x00,0x3E,0x22,0x3E,0x00,0x3E,0x0A,0x0E,0x00
+```
+
+- 清屏 (Clear): 
+
+```C
+0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+```
+
+**接线图保持不变：**
+
+![](../../img/image78.png)
+
+⚠️ <span style="color: rgb(255, 76, 65);">**重要提示：**</span>
+
+- <span style="color: rgb(172, 57, 255);">**上传示例代码前，请务必拔掉蓝牙模块！ 因为蓝牙模块也占用Arduino的串口通信（TX/RX），如果不拔掉，示例代码上传会失败。**</span>
+
+```cpp
+/*
+  keyes 4WD 多功能智能车
+  课程 10.2
+  点阵屏显示
+  http://www.keyes-robot.com
+*/
+
+// 数组，用于存储图案的数据，可以自己计算也可以从取模工具中获得
+unsigned char START_01[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01};
+unsigned char FRONT[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x24, 0x12, 0x09, 0x12, 0x24, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+unsigned char BACK[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x24, 0x48, 0x90, 0x48, 0x24, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+unsigned char LEFT[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x44, 0x28, 0x10, 0x44, 0x28, 0x10, 0x44, 0x28, 0x10, 0x00};
+unsigned char RIGHT[] = {0x00, 0x10, 0x28, 0x44, 0x10, 0x28, 0x44, 0x10, 0x28, 0x44, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+unsigned char STOP_01[] = {0x2E, 0x2A, 0x3A, 0x00, 0x02, 0x3E, 0x02, 0x00, 0x3E, 0x22, 0x3E, 0x00, 0x3E, 0x0A, 0x0E, 0x00};
+unsigned char CLEAR[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+#define SCL_PIN  A5  // 时钟引脚 A5
+#define SDA_PIN  A4  // 数据引脚 A4
+
+void setup() {
+  pinMode(SCL_PIN, OUTPUT);  // 设置时钟引脚为输出模式
+  pinMode(SDA_PIN, OUTPUT);  // 设置数据引脚为输出模式
+  matrixDisplay(CLEAR);      // 清屏显示
+}
+
+void loop() {
+  matrixDisplay(START_01);  // 显示开始图案
+  delay(2000);
+  matrixDisplay(FRONT);     // 显示前进图案
+  delay(2000);
+  matrixDisplay(STOP_01);   // 显示停止图案
+  delay(2000);
+  matrixDisplay(CLEAR);     // 清屏
+  delay(2000);
+}
+
+/* 功能：点阵屏显示函数，传入图案数组 */
+void matrixDisplay(unsigned char matrixValue[]) {
+  iicStart();               // 发送开始信号
+  iicSend(0xc0);            // 选择点阵屏地址
+  for (int i = 0; i < 16; i++) {  // 发送16字节图案数据
+    iicSend(matrixValue[i]);       // 发送图案数据
+  }
+  iicEnd();                 // 发送结束信号
+  iicStart();
+  iicSend(0x8A);            // 显示控制，设置脉宽为4/16
+  iicEnd();
+}
+
+/* 功能：IIC总线开始信号 */
+void IICStart() {
+  digitalWrite(SCL_PIN, HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_PIN, HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_PIN, LOW);
+  delayMicroseconds(3);
+}
+
+/* 功能：IIC总线发送一个字节数据 */
+void IICSend(unsigned char sendData) {
+  for (char i = 0; i < 8; i++) {  // 逐位发送8位数据
+    digitalWrite(SCL_PIN, LOW);    // 时钟拉低，准备改变数据线状态
+    delayMicroseconds(3);
+    if (sendData & 0x01) {         // 判断最低位是1还是0
+      digitalWrite(SDA_PIN, HIGH);
+    } else {
+      digitalWrite(SDA_PIN, LOW);
+    }
+    delayMicroseconds(3);
+    digitalWrite(SCL_PIN, HIGH);   // 时钟拉高，数据被读取
+    delayMicroseconds(3);
+    sendData = sendData >> 1;      // 右移一位，准备发送下一位
+  }
+}
+
+/* 功能：IIC总线结束信号 */
+void IICEnd() {
+  digitalWrite(SCL_PIN, LOW);
+  delayMicroseconds(3);
+  digitalWrite(SDA_PIN, LOW);
+  delayMicroseconds(3);
+  digitalWrite(SCL_PIN, HIGH);
+  delayMicroseconds(3);
+  digitalWrite(SDA_PIN, HIGH);
+  delayMicroseconds(3);
+}
+```
+
+### 10.8 项目结果2：
+
+⚠️ <span style="color: rgb(255, 76, 65);">**重要提示：**</span>
+
+- <span style="color: rgb(172, 57, 255);">**上传示例代码前，请务必拔掉蓝牙模块！ 因为蓝牙模块也占用Arduino的串口通信（TX/RX），如果不拔掉，示例代码上传会失败。**</span>
+
+外接电源，将电机驱动扩展板上的拨码开关拨到 “<span style="color: rgb(255, 76, 65);">**ON**</span>” 端，上电后。选择好正确的开发板板型（Arduino Uno）和 适当的串口端口（COMxx），然后单击 ![Arduino_2.3.6-a40](../../img/Arduino_2.3.6-a40.png) 按钮上传示例代码2至Arduino控制板。
+
+代码上传成功后，8x16 LED 点阵上显示 “开始”、“前进”、“停止” 图案，然后清屏，循环进行。
+
+![](../../img/A11.gif)

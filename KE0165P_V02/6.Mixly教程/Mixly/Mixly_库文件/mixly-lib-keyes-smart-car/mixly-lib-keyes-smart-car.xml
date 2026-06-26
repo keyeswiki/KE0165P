@@ -1,0 +1,811 @@
+<script type="text/javascript" src="./language/zh-hans.js"></script>
+<script type="text/javascript" src="./language/zh-hant.js"></script>
+<script type="text/javascript" src="./language/en.js"></script>
+<script type="text/javascript" src="./block/keyes_smart_car.js"></script>
+<script type="text/javascript" src="./generator/keyes_smart_car.js"></script>
+<category id="keyes" name="Keyes smart car" colour="20">
+  <category id="2WD" name="desktop car" colour="20">
+    <block type="desk_led">
+      <value name="PIN">
+        <shadow type="pins_digital"></shadow>
+      </value>
+    </block>
+
+    <block type="FRONT">
+      <value name="speed_F">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_F2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="BACK">
+      <value name="speed_B">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_B2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="LEFT">
+      <value name="speed_L">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_L2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="TURN_LEFT">
+
+    </block>
+
+    <block type="RIGHT">
+      <value name="speed_R">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_R2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="TURN_RIGHT">
+
+    </block>
+
+    <block type="STOP">
+
+    </block>
+
+    <!--          desktop_car避障传感器               -->
+    <block type="desk_avoid">
+
+    </block>
+
+    <!--          desktop_car超声波               -->
+    <block type="desk_sr04">
+
+    </block>
+
+    <!--          desktop_car循迹传感器               -->
+    <block type="desk_track">
+
+    </block>
+
+    <block type="tone_notes">
+      <value name="tone">
+        <shadow type="FREQUENCY"></shadow>
+      </value>
+    </block>
+
+    <!--          desktop_car蜂鸣器               -->
+    <block type="desk_buzzer">
+      <value name="FREQUENCY">
+        <shadow type="tone_notes"></shadow>
+      </value>
+    </block>
+
+    <!--          desktop_car音乐              -->
+    <block type="desk_music">
+
+    </block>
+
+    <!--          desktop_car关闭蜂鸣器               -->
+    <block type="desk_notone">
+
+    </block>
+
+
+    <!--          desktop_car红外接收               -->
+    <block type="desk_ir_r">
+
+    </block>
+
+    <!--          desktop_car蓝牙接收               -->
+    <block type="desk_bluetooth">
+
+    </block>
+  </category>
+
+
+  <category id="Turtle" name="smart turtle" colour="60">
+    <block type="turtle_led">
+      <value name="PIN">
+        <shadow type="pins_digital"></shadow>
+      </value>
+
+    </block>
+
+    <block type="turtle_FRONT">
+      <value name="speed_F">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_F2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="turtle_BACK">
+      <value name="speed_B">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_B2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="turtle_LEFT">
+      <value name="speed_L">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_L2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="turtle_TURN_LEFT">
+
+    </block>
+
+    <block type="turtle_RIGHT">
+      <value name="speed_R">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_R2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="turtle_TURN_RIGHT">
+
+    </block>
+
+    <block type="turtle_STOP">
+
+    </block>
+
+
+    <!--          Small_Turtle_Robot超声波               -->
+    <block type="turtle_sr04">
+
+    </block>
+
+    <!--          Small_Turtle_Robot循迹传感器               -->
+    <block type="turtle_track">
+
+    </block>
+
+
+    <!--          Small_Turtle_Robot舵机 22222          -->
+    <block type="turtle_servo2">
+
+      <value name="angle">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <!--                   8*8点阵                   
+	    <block type="turtle_matrix_init">
+	      <value name="PIN1">
+	        <shadow type="pins_digital">
+	          <field name="PIN">SDA</field>
+	        </shadow>
+	      </value>
+	      <value name="PIN2">
+	        <shadow type="pins_digital">
+	          <field name="PIN">SCL</field>
+	        </shadow>
+	      </value>
+	    </block>
+
+	    <block type="turtle_Matrix_DrawPixel">
+	      <value name="XVALUE">
+	        <shadow type="math_number">
+	          <field name="NUM">1</field>
+	        </shadow>
+	      </value>
+	      <value name="YVALUE">
+	        <shadow type="math_number">
+	          <field name="NUM">1</field>
+	        </shadow>
+	      </value>
+	      <value name="STAT">
+	        <shadow type="inout_highlow"></shadow>
+	      </value>
+	    </block>
+	   
+	    <block type="turtle_HT16K33_Rotation">
+	    </block>
+	    <block type="turtle_Matrix_TEXT">
+	      <value name="TEXT">
+	        <shadow type="text">
+	          <field name="TEXT">Mixly</field>
+	        </shadow>
+	      </value>
+	      <value name="Speed">
+	        <shadow type="math_number">
+	          <field name="NUM">300</field>
+	        </shadow>
+	      </value>
+	    </block>
+	    <block type="turtle_Matrix_DisplayChar">
+	      <value name="NO">
+	        <shadow type="math_number">
+	          <field name="NUM">0</field>
+	        </shadow>
+	      </value>
+	      <value name="LEDArray">
+	        <block type="display_Matrix_LedArray"></block>
+	      </value>
+	    </block>
+	    <block type="turtle_Matrix_img">
+	    </block>
+	    <block type="turtle_Matrix_fillScreen">
+	    </block>
+	    <block type="turtle_Matrix_Brightness">
+	     <value name="Brightness">
+	      <shadow type="math_number">
+	        <field name="NUM">5</field>
+	      </shadow>
+	    </value>
+	  </block>
+
+	-->
+
+
+    <block type="turtle_matrix_init">
+      <value name="address">
+        <shadow type="math_number">
+          <field name="NUM">0x70</field>
+        </shadow>
+      </value>
+
+      <value name="PIN1">
+        <shadow type="pins_digital">
+          <field name="PIN">A4</field>
+        </shadow>
+      </value>
+
+      <value name="PIN2">
+        <shadow type="pins_digital">
+          <field name="PIN">A5</field>
+        </shadow>
+      </value>
+
+    </block>
+
+    <block type="turtle_matrix1" name="点阵屏显示_显示图案">
+      <value name="LEDArray">
+        <block type="turtle_matrix2"></block>
+      </value>
+    </block>
+
+    <block type="turtle_Matrix_6" name="6ge">
+
+    </block>
+
+    <block type="turtle_Matrix_CLEAR" name="清屏">
+
+    </block>
+
+
+    <!--          Small_Turtle_Robot红外接收               -->
+    <block type="turtle_ir_r">
+
+    </block>
+
+    <!--          Small_Turtle_Robot蓝牙接收               -->
+    <block type="turtle_bluetooth">
+
+    </block>
+  </category>
+
+
+  <category id="TANK" name="tank robot" colour="100">
+    <block type="tank_led">
+      <value name="PIN">
+        <shadow type="pins_digital">9</shadow>
+      </value>
+
+    </block>
+
+    <block type="tank_FRONT">
+      <value name="speed_F">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+      <value name="speed_F2">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="tank_BACK">
+      <value name="speed_B">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+      <value name="speed_B2">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="tank_LEFT">
+      <value name="speed_L">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+      <value name="speed_L2">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="tank_TURN_LEFT">
+
+    </block>
+
+    <block type="tank_RIGHT">
+      <value name="speed_R">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+      <value name="speed_R2">
+        <shadow type="math_number">
+          <field name="NUM">200</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="tank_TURN_RIGHT">
+
+    </block>
+
+    <block type="tank_STOP">
+
+    </block>
+
+    <!--              光线传感器              -->
+    <block type="Tank_light">
+
+    </block>
+
+
+    <!--          Mini_Tank_Robot超声波               -->
+    <block type="Tank_sr04">
+
+    </block>
+
+
+    <!--          Mini_Tank_Robot舵机 22222          -->
+    <block type="Tank_servo2">
+
+      <value name="angle">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+
+    <!--          Mini_Tank_Robot点阵               -->
+    <block type="tank_Matrix_16and8_Init">
+      <value name="PIN1">
+        <shadow type="pins_digital">
+          <field name="PIN">SDA</field>
+        </shadow>
+      </value>
+      <value name="PIN2">
+        <shadow type="pins_digital">
+          <field name="PIN">SCL</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="tank_display_Matrix16and8_DisplayChar">
+      <value name="NO">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="LEDArray">
+        <block type="tank_display_Matrix16and8_LedArray"></block>
+      </value>
+    </block>
+
+    <block type="Tank_matrix">
+
+    </block>
+
+    <!--          Mini_Tank_Robot红外接收               -->
+    <block type="Tank_ir_r">
+
+    </block>
+
+    <!--          Mini_Tank_Robot蓝牙接收               -->
+    <block type="Tank_bluetooth">
+
+    </block>
+  </category>
+
+
+  <category id="4WD" name="4wd robot" colour="120">
+    <block type="ks4wd_led">
+      <value name="PIN">
+        <shadow type="pins_digital"></shadow>
+      </value>
+
+    </block>
+
+    <block type="ks4wd_FRONT">
+      <value name="speed_F">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_F2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="ks4wd_BACK">
+      <value name="speed_B">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_B2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="ks4wd_LEFT">
+      <value name="speed_L">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_L2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="ks4wd_TURN_LEFT">
+
+    </block>
+
+    <block type="ks4wd_RIGHT">
+      <value name="speed_R">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="speed_R2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="ks4wd_TURN_RIGHT">
+
+    </block>
+
+    <block type="ks4wd_STOP">
+
+    </block>
+
+    <!--          keyes_4wd超声波               -->
+    <block type="ks4wd_sr04">
+
+    </block>
+
+
+    <!--          keyes_4wd舵机 22222          -->
+    <block type="ks4wd_servo2">
+
+      <value name="angle">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <!--          keyes_4wd点阵               -->
+    <block type="Matrix_16and8_Init_4wd">
+      <value name="PIN1">
+        <shadow type="pins_digital">
+          <field name="PIN">SDA</field>
+        </shadow>
+      </value>
+      <value name="PIN2">
+        <shadow type="pins_digital">
+          <field name="PIN">SCL</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="display_Matrix16and8_DisplayChar_4wd">
+      <value name="NO">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="LEDArray">
+        <block type="display_Matrix16and8_LedArray_4wd"></block>
+      </value>
+    </block>
+
+    <block type="ks4wd_matrix">
+
+    </block>
+
+
+    <!--          循迹传感器               -->
+    <block type="ks4wd_track">
+
+    </block>
+    <!--          keyes_4wd红外接收               -->
+    <block type="ks4wd_ir_r">
+
+    </block>
+
+    <!--          keyes_4wd蓝牙接收               -->
+    <block type="ks4wd_bluetooth">
+
+    </block>
+  </category>
+
+
+  <category id="Frog" name="frog robot" colour="150">
+    <block type="OTTO_init">
+      <value name="YL">
+        <shadow type="math_number">
+          <field name="NUM1">1</field>
+        </shadow>
+      </value>
+      <value name="RL">
+        <shadow type="math_number">
+          <field name="NUM2">0</field>
+        </shadow>
+      </value>
+      <value name="YR">
+        <shadow type="math_number">
+          <field name="NUM3">0</field>
+        </shadow>
+      </value>
+      <value name="RR">
+        <shadow type="math_number">
+          <field name="NUM4">0</field>
+        </shadow>
+      </value>
+    </block>
+
+
+    <block type="otto_FRONT">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_BACK">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_LEFT">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_RIGHT">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_STOP">
+
+    </block>
+
+    <block type="otto_moon_LEFT">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_moon_RIGHT">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_kickLeft">
+
+    </block>
+
+    <block type="otto_kickright">
+
+    </block>
+
+    <block type="otto_drunk">
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">4</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_noGravity">
+
+    </block>
+
+    <block type="otto_crusaito">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_segunda1">
+
+    </block>
+
+    <block type="otto_jump">
+
+    </block>
+
+    <block type="otto_flapping">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_swing">
+      <value name="steps">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_goingUp">
+      <value name="speed1">
+        <shadow type="math_number">
+          <field name="NUM">2</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_servo">
+      <value name="PIN">
+        <shadow type="pins_digital"></shadow>
+      </value>
+      <value name="angle">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="time">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+
+    <block type="otto_sr04"></block>
+
+    <block type="otto_bluetooth"></block>
+  </category>
+</category>
